@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css";
+import SpeechRecognition, {
+    useSpeechRecognition,
+} from "react-speech-recognition";
 import {
     MDBBtn,
     MDBContainer,
@@ -12,7 +15,66 @@ import {
 } from "mdb-react-ui-kit";
 
 function Signup() {
-    return (     
+    const [formData, setFormData] = useState({
+        name: "",
+        birthYear: "",
+        email: "",
+        disability: "",
+        password: "",
+        confirmPassword: "",
+    });
+
+    function verify(params) {
+        var formdata = new FormData();
+        formdata.append("input_file", fileInput.files[0], "/C:/Users/pjain/Downloads/DemoID.jpg");
+
+        var requestOptions = {
+            method: 'POST',
+            body: formdata,
+            redirect: 'follow'
+        };
+
+        fetch("https://b637-103-207-59-68.ngrok-free.app/verify", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+
+    }
+
+    const isSpeechRecognitionSupported =
+        "webkitSpeechRecognition" in window || "SpeechRecognition" in window;
+
+    // Initialize the recognition object outside the component function.
+    const recognition = isSpeechRecognitionSupported
+        ? new (window.SpeechRecognition || window.webkitSpeechRecognition)()
+        : null;
+
+    // Initialize a state variable to keep track of the recognition status.
+    const [recognitionStarted, setRecognitionStarted] = useState(false);
+
+    if (isSpeechRecognitionSupported && recognition) {
+        recognition.onresult = function (event) {
+            const result = event.results[0][0].transcript;
+            // Update the form field here (e.g., email, disability, password)
+            // ...
+        };
+    } else {
+        console.warn("Speech recognition is not supported in this browser.");
+    }
+
+    const startSpeechRecognition = () => {
+        if (recognition) {
+            if (!recognitionStarted) {
+                recognition.start();
+                setRecognitionStarted(true);
+            } else {
+                recognition.stop();
+                setRecognitionStarted(false);
+            }
+        }
+    };
+
+    return (
         <MDBContainer fluid className="p-4">
             <MDBRow>
                 <MDBCol
@@ -58,13 +120,30 @@ function Signup() {
                                     />
                                 </MDBCol>
                             </MDBRow>
-
-                            <MDBInput
-                                wrapperClass="mb-4"
-                                label="Email"
-                                id="form1"
-                                type="email"
-                            />
+                            <MDBRow>
+                                <MDBCol col="12">
+                                    <div className="position-relative">
+                                        <MDBInput
+                                            wrapperClass="mb-4"
+                                            label="Email"
+                                            id="form1"
+                                            type="email"
+                                            value={formData.email}
+                                            onChange={(e) =>
+                                                setFormData({ ...formData, email: e.target.value })
+                                            }
+                                        />
+                                        {isSpeechRecognitionSupported && (
+                                            <MDBIcon
+                                                icon="microphone"
+                                                className="position-absolute top-50 end-0 translate-middle-y"
+                                                onClick={startSpeechRecognition}
+                                                style={{ cursor: "pointer", color: "#007bff" }}
+                                            />
+                                        )}
+                                    </div>
+                                </MDBCol>
+                            </MDBRow>
                             <MDBInput
                                 wrapperClass="mb-4"
                                 label="Disability"
@@ -90,7 +169,7 @@ function Signup() {
                                 accept=".jpg, .jpeg"
                             />
 
-                            <MDBBtn className="w-100 mb-4" size="md"data-bs-dismiss="toast">
+                            <MDBBtn className="w-100 mb-4" size="md" data-bs-dismiss="toast">
                                 sign up
                             </MDBBtn>
                             {/* <div class="toast-body">Verified</div> */}
@@ -103,7 +182,7 @@ function Signup() {
                                     color="none"
                                     className="mx-3"
                                     style={{ color: "#1266f1" }}
-                                    
+
                                 >
                                     <MDBIcon fab icon="facebook-f" size="sm" />
                                 </MDBBtn>
