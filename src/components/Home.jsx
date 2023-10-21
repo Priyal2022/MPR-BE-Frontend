@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import ScrollReveal from "scrollreveal";
+import Navbar from "./Navbar";
 
 const Home = () => {
     useEffect(() => {
@@ -75,8 +76,8 @@ const Home = () => {
             <link rel="stylesheet" href="/dist/css/style.css" />
             <div className="body-wrap boxed-container">
                 <header className="site-header">
-                    <div className="container">
-                        <div className="site-header-inner">
+                    {/* <div className="container"> */}
+                        {/* <div className="site-header-inner">
                             <div className="brand header-brand">
                                 <h1 className="m-0">
                                     <a href="#">
@@ -93,8 +94,9 @@ const Home = () => {
                                     </a>
                                 </h1>
                             </div>
-                        </div>
-                    </div>
+                        </div> */}
+                    {/* </div> */}
+                <Navbar />
                 </header>
                 <main>
                     <section className="hero">

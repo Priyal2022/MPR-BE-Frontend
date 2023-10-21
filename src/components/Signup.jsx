@@ -12,7 +12,7 @@ import {
 } from "mdb-react-ui-kit";
 
 function Signup() {
-    return (
+    return (     
         <MDBContainer fluid className="p-4">
             <MDBRow>
                 <MDBCol
@@ -43,7 +43,7 @@ function Signup() {
                                 <MDBCol col="6">
                                     <MDBInput
                                         wrapperClass="mb-4"
-                                        label="First name"
+                                        label="Name"
                                         id="form1"
                                         type="text"
                                     />
@@ -52,7 +52,7 @@ function Signup() {
                                 <MDBCol col="6">
                                     <MDBInput
                                         wrapperClass="mb-4"
-                                        label="Last name"
+                                        label="Birth Year"
                                         id="form1"
                                         type="text"
                                     />
@@ -67,7 +67,19 @@ function Signup() {
                             />
                             <MDBInput
                                 wrapperClass="mb-4"
+                                label="Disability"
+                                id="form1"
+                                type="text"
+                            />
+                            <MDBInput
+                                wrapperClass="mb-4"
                                 label="Password"
+                                id="form1"
+                                type="password"
+                            />
+                            <MDBInput
+                                wrapperClass="mb-4"
+                                label="Confirm Password"
                                 id="form1"
                                 type="password"
                             />
@@ -78,9 +90,10 @@ function Signup() {
                                 accept=".jpg, .jpeg"
                             />
 
-                            <MDBBtn className="w-100 mb-4" size="md">
+                            <MDBBtn className="w-100 mb-4" size="md"data-bs-dismiss="toast">
                                 sign up
                             </MDBBtn>
+                            {/* <div class="toast-body">Verified</div> */}
 
                             <div className="text-center">
                                 <p>or sign up with:</p>
@@ -90,6 +103,7 @@ function Signup() {
                                     color="none"
                                     className="mx-3"
                                     style={{ color: "#1266f1" }}
+                                    
                                 >
                                     <MDBIcon fab icon="facebook-f" size="sm" />
                                 </MDBBtn>
