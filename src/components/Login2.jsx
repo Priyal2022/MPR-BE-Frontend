@@ -1,60 +1,67 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import "./Login.css";
 import {
     MDBBtn,
     MDBContainer,
     MDBRow,
     MDBCol,
-    MDBCard, 
+    MDBCard,
     MDBCardBody,
     MDBInput,
     MDBIcon,
 } from "mdb-react-ui-kit";
+import useSpeechToText from "react-hook-speech-to-text";
 
 function Login2() {
+    const {
+        error,
+        interimResult,
+        results,
+        isRecording,
+        startSpeechToText,
+        stopSpeechToText,
+    } = useSpeechToText({
+        continuous: false,
+        useLegacyResults: false,
+    });
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [listening, setListening] = useState(false);
+    const activeInputRef = useRef(null);
 
-   const startListening = useCallback(() => {
-        if (window.SpeechRecognition) {
-            const recognition = new window.SpeechRecognition();
-            recognition.continuous = false;
-
-            recognition.onstart = () => {
-                setListening(true);
-            };
-
-            recognition.onend = () => {
-                setListening(false);
-            };
-
-            recognition.onresult = (event) => {
-                const transcript = event.results[0][0].transcript;
-                if (email && listening) {
-                    setEmail(email + " " + transcript);
-                } else if (password && listening) {
-                    setPassword(password + " " + transcript);
-                }
-            };
-
-            recognition.onerror = (error) => {
-                console.error("Speech recognition error: ", error);
-            };
-
-            recognition.lang = "en-US"; // Set the desired language here
-
-            const startListening = () => {
-                if (!listening) {
-                    recognition.start();
-                }
-            };
-
-            return () => {
-                recognition.stop();
-            };
+    const handleEmailSpeechToText = () => {
+        if (!isRecording) {
+            activeInputRef.current = "email";
+            startSpeechToText();
+        } else {
+            stopSpeechToText();
         }
-    }, [email, password, listening]);
+    };
+
+    const handlePasswordSpeechToText = () => {
+        if (!isRecording) {
+            activeInputRef.current = "password";
+            startSpeechToText();
+        } else {
+            stopSpeechToText();
+        }
+    };
+
+    const handleSpeechRecognitionResult = () => {
+        if (results) {
+            results.forEach((result) => {
+                if (activeInputRef.current === "email") {
+                    setEmail(email + result.transcript + " ");
+                } else if (activeInputRef.current === "password") {
+                    setPassword(password + result.transcript + " ");
+                }
+            });
+        }
+    };
+
+    useEffect(() => {
+        handleSpeechRecognitionResult();
+    }, [results]);
 
     return (
         <MDBContainer fluid className="p-4">
@@ -84,47 +91,60 @@ function Login2() {
                     <MDBCard className="my-5">
                         <MDBCardBody className="p-5">
                             <MDBRow>
-                            <MDBCol col="12">
-                                <div classname="position-relative">
-                            <MDBInput
-                                wrapperClass="mb-4"
-                                label="Email"
-                                id="form1"
-                                type="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
-                            {window.SpeechRecognition && (
-                                <MDBIcon
-                                icon="microphone"
-                                className="position-absolute top-50 end-0 translate-middle-y"
-                                onClick={startListening}
-                                style={{ cursor: "pointer", color: "#007bff" }}
-                            />
-                            )}
-                            </div>
-                            </MDBCol>
+                                <MDBCol col="12">
+                                    <div className="position-relative">
+                                        <MDBInput
+                                            wrapperClass="mb-4"
+                                            label="Email"
+                                            id="form1"
+                                            type="email"
+                                            value={email}
+                                            onChange={(e) =>
+                                                setEmail(e.target.value)
+                                            }
+                                        />
+
+                                        <MDBIcon
+                                            icon="microphone"
+                                            className="position-absolute top-50 end-0 translate-middle-y"
+                                            onClick={handleEmailSpeechToText}
+                                            style={{
+                                                cursor: "pointer",
+                                                color: isRecording
+                                                    ? "red"
+                                                    : "#007bff",
+                                            }}
+                                        />
+                                    </div>
+                                </MDBCol>
                             </MDBRow>
-
-                            <MDBInput
-                                wrapperClass="mb-4"
-                                label="Password"
-                                id="form1"
-                                type="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                            />
-                            {window.SpeechRecognition && (
-                                <MDBIcon
-                                    icon="microphone"
-                                    size="lg"
-                                    onClick={startListening}
-                                    className={`microphone-icon ${
-                                        listening ? "active" : ""
-                                    }`}
-                                />
-                            )}
-
+                            <MDBRow>
+                                <MDBCol col="12">
+                                    <div className="position-relative">
+                                        <MDBInput
+                                            wrapperClass="mb-4"
+                                            label="Password"
+                                            id="form1"
+                                            type="password"
+                                            value={password}
+                                            onChange={(e) =>
+                                                setPassword(e.target.value)
+                                            }
+                                        />
+                                        <MDBIcon
+                                            icon="microphone"
+                                            className="position-absolute top-50 end-0 translate-middle-y"
+                                            onClick={handlePasswordSpeechToText}
+                                            style={{
+                                                cursor: "pointer",
+                                                color: isRecording
+                                                    ? "red"
+                                                    : "#007bff",
+                                            }}
+                                        />
+                                    </div>
+                                </MDBCol>
+                            </MDBRow>
                             <MDBBtn className="w-100 mb-4" size="md">
                                 Login
                             </MDBBtn>
