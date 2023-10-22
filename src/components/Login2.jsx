@@ -49,16 +49,24 @@ function Login2() {
 
     const handleSpeechRecognitionResult = () => {
         if (results) {
-            results.forEach((result) => {
-                if (activeInputRef.current === "email") {
-                    setEmail(email + result.transcript + " ");
-                } else if (activeInputRef.current === "password") {
-                    setPassword(password + result.transcript + " ");
-                }
-            });
+          results.forEach((result) => {
+            let transcript = result.transcript;
+      
+            // Correct the transcribed "at the rate" to "@"
+            transcript = transcript.replace(/at the rate/g, "@");
+      
+            // Remove leading and trailing spaces
+            transcript = transcript.trim().replace(/\s+/g, " ");
+      
+            if (activeInputRef.current === "email") {
+              setEmail(email + transcript);
+            } else if (activeInputRef.current === "password") {
+              setPassword(password + transcript);
+            }
+          });
         }
-    };
-
+      };
+    
     useEffect(() => {
         handleSpeechRecognitionResult();
     }, [results]);

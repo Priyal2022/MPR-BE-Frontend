@@ -71,27 +71,30 @@ function Signup2() {
 
     const handleSpeechRecognitionResult = () => {
         if (results) {
-            results.forEach((result) => {
-                if (activeInputRef.current === "email") {
-                    setFormData({
-                        ...formData,
-                        email: formData.email + result.transcript + " ",
-                    });
-                } else if (activeInputRef.current === "disability") {
-                    setFormData({
-                        ...formData,
-                        disability:
-                            formData.disability + result.transcript + " ",
-                    });
-                } else if (activeInputRef.current === "password") {
-                    setFormData({
-                        ...formData,
-                        password: formData.password + result.transcript + " ",
-                    });
-                }
-            });
+          results.forEach((result) => {
+            let transcript = result.transcript;
+            transcript = transcript.trim();
+            if (activeInputRef.current === "email") {
+              // Correct the transcribed "at the rate" to "@"
+              transcript = transcript.replace(/at the rate/g, "@");
+              setFormData({
+                ...formData,
+                email: formData.email + transcript + " ",
+              });
+            } else if (activeInputRef.current === "disability") {
+              setFormData({
+                ...formData,
+                disability: formData.disability + transcript + " ",
+              });
+            } else if (activeInputRef.current === "password") {
+              setFormData({
+                ...formData,
+                password: formData.password + transcript + " ",
+              });
+            }
+          });
         }
-    };
+      };
 
     useEffect(() => {
         handleSpeechRecognitionResult();
