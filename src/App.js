@@ -8,6 +8,7 @@ import Login2 from './components/Login2';
 import Navbar from './components/Navbar';
 
 import './App.css';
+import Jobs from './components/Jobs';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/login2" element={<Login2 />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signup2" element={<Signup2 />} />
+          <Route path="/jobs" element={<Jobs />} />
         </Routes>
       </BrowserRouter>
     </div>
