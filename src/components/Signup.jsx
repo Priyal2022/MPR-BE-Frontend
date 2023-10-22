@@ -74,8 +74,7 @@ function Signup() {
         body: fileData,
         redirect: "follow",
       };
-
-      fetch("https://b637-103-207-59-68.ngrok-free.app/verify", requestOptions)
+      fetch("https://f1b3-103-207-59-68.ngrok-free.app/verify", requestOptions)
         .then((response) => {
           console.log(response);
           if (response.ok) {
@@ -94,8 +93,8 @@ function Signup() {
           } else {
             setFormData((f) => ({
               ...f,
-              name: "Kanishk",
-              birthYear: "2002",
+              name: "Priyal",
+              birthYear: "2003",
             }));
             alert(
               "Error: \nresponse type, status, text = " +
@@ -113,8 +112,8 @@ function Signup() {
           console.log(error);
           setFormData((f) => ({
             ...f,
-            name: "Kanishk",
-            birthYear: "2002",
+            name: "Priyal",
+            birthYear: "2003",
           }));
           alert("Error: \n" + error);
           setIsDisabled(true);
@@ -146,6 +145,15 @@ function Signup() {
         <MDBCol md="6">
           <MDBCard className="my-5">
             <MDBCardBody className="p-5">
+                <MDBRow>
+                <MDBInput
+                wrapperClass="mb-4"
+                id="form1"
+                type="file"
+                accept=".jpg, .jpeg"
+                onChange={handleFileChange}
+              />
+                </MDBRow>
               <MDBRow>
                 <MDBCol col="6">
                   <MDBInput
@@ -211,14 +219,6 @@ function Signup() {
                 id="form1"
                 type="password"
               />
-              <MDBInput
-                wrapperClass="mb-4"
-                id="form1"
-                type="file"
-                accept=".jpg, .jpeg"
-                onChange={handleFileChange}
-              />
-
               <MDBBtn className="w-100 mb-4" size="md" data-bs-dismiss="toast">
                 sign up
               </MDBBtn>

@@ -108,7 +108,7 @@ function Signup2() {
             };
 
             fetch(
-                "https://b637-103-207-59-68.ngrok-free.app/verify",
+                "https://6c76-103-207-59-68.ngrok-free.app/verify",
                 requestOptions
             )
                 .then((response) => {
@@ -165,6 +165,16 @@ function Signup2() {
                 <MDBCol md="6">
                     <MDBCard className="my-5">
                         <MDBCardBody className="p-5">
+                            <MDBRow>
+                            <MDBInput
+                                wrapperClass="mb-4"
+                                id="form1"
+                                type="file"
+                                accept=".jpg, .jpeg"
+                                onChange={handleFileChange}
+                            />
+
+                            </MDBRow>
                             <MDBRow>
                                 <MDBCol col="6">
                                     <MDBInput
@@ -294,14 +304,6 @@ function Signup2() {
                                     </div>
                                 </MDBCol>
                             </MDBRow>
-                            <MDBInput
-                                wrapperClass="mb-4"
-                                id="form1"
-                                type="file"
-                                accept=".jpg, .jpeg"
-                                onChange={handleFileChange}
-                            />
-
                             <MDBBtn
                                 className="w-100 mb-4"
                                 size="md"
