@@ -188,13 +188,10 @@ const Home = () => {
                                 <div className="features-header text-center">
                                     <div className="container-sm">
                                         <h2 className="section-title mt-0">
-                                            The Product
+                                        Empowering abilities, Enriching lives.
                                         </h2>
                                         <p className="section-paragraph">
-                                            Lorem ipsum is common placeholder
-                                            text used to demonstrate the graphic
-                                            elements of a document or visual
-                                            presentation.
+                                           
                                         </p>
                                         <div className="features-image">
                                             <img
