@@ -172,11 +172,11 @@ const Home = () => {
                                             src="/dist/images/hero-media-light.svg"
                                             alt="Hero media"
                                         /> */}
-                                        <img
+                                        {/* <img
                                             className="hero-media-image asset-dark"
                                             src="/dist/images/hero-media-dark.svg"
                                             alt="Hero media"
-                                        />
+                                        /> */}
                                     </div>
                                 </div>
                             </div>
@@ -298,11 +298,7 @@ const Home = () => {
                                                     Discover
                                                 </h3>
                                                 <p className="text-sm mb-0">
-                                                    Lorem ipsum dolor sit amet,
-                                                    consecte adipiscing elit,
-                                                    sed do eiusmod tempor
-                                                    incididunt ut labore et
-                                                    dolore magna aliqua dui.
+                                                    A platform to showcase your artistic side.
                                                 </p>
                                             </div>
                                         </div>
@@ -420,9 +416,9 @@ const Home = () => {
                                     </a>
                                 </li>
                             </ul>
-                            <div className="footer-copyright">
+                            {/* <div className="footer-copyright">
                                 © 2018 Switch, all rights reserved
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </footer>
