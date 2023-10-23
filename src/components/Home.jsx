@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import ScrollReveal from "scrollreveal";
 import Navbar from "./Navbar";
+import "../envision.png";
 
 const Home = () => {
     useEffect(() => {
@@ -77,7 +78,7 @@ const Home = () => {
             <div className="body-wrap boxed-container">
                 <header className="site-header">
                     {/* <div className="container"> */}
-                        {/* <div className="site-header-inner">
+                    {/* <div className="site-header-inner">
                             <div className="brand header-brand">
                                 <h1 className="m-0">
                                     <a href="#">
@@ -96,7 +97,7 @@ const Home = () => {
                             </div>
                         </div> */}
                     {/* </div> */}
-                <Navbar />
+                    <Navbar />
                 </header>
                 <main>
                     <section className="hero">
@@ -104,19 +105,17 @@ const Home = () => {
                             <div className="hero-inner">
                                 <div className="hero-copy">
                                     <h1 className="hero-title mt-0">
-                                        Landing template for startups
+                                        Our Motto
                                     </h1>
                                     <p className="hero-paragraph">
-                                        Our landing page template works on all
-                                        devices, so you only have to set it up
-                                        once, and get beautiful results forever.
+                                        To create a service which helps differently abled people to give them a chance to showcase their abilities and bring them the opportunities they deserve.
                                     </p>
                                     <div className="hero-cta">
                                         <a
                                             className="button button-primary"
-                                            href="#"
+                                            href="/Signup2"
                                         >
-                                            Buy it now
+                                            Get Started!
                                         </a>
                                         <div className="lights-toggle">
                                             <input
@@ -166,11 +165,13 @@ const Home = () => {
                                         />
                                     </div>
                                     <div className="hero-media-container">
-                                        <img
+                                        <div style={{ width: "300px", height: "300px"}}>
+                                            <dotlottie-player src="https://lottie.host/28439c5b-e0f3-4d4c-9c3c-ed137a657005/bgI1ZkLvzL.json"  background="transparent" speed="1" loop autoplay></dotlottie-player></div>
+                                        {/* <img
                                             className="hero-media-image asset-light"
                                             src="/dist/images/hero-media-light.svg"
                                             alt="Hero media"
-                                        />
+                                        /> */}
                                         <img
                                             className="hero-media-image asset-dark"
                                             src="/dist/images/hero-media-dark.svg"
@@ -249,11 +250,7 @@ const Home = () => {
                                                     Discover
                                                 </h3>
                                                 <p className="text-sm mb-0">
-                                                    Lorem ipsum dolor sit amet,
-                                                    consecte adipiscing elit,
-                                                    sed do eiusmod tempor
-                                                    incididunt ut labore et
-                                                    dolore magna aliqua dui.
+                                                    Job opportunities according to the user’s requirements
                                                 </p>
                                             </div>
                                         </div>
@@ -277,11 +274,7 @@ const Home = () => {
                                                     Discover
                                                 </h3>
                                                 <p className="text-sm mb-0">
-                                                    Lorem ipsum dolor sit amet,
-                                                    consecte adipiscing elit,
-                                                    sed do eiusmod tempor
-                                                    incididunt ut labore et
-                                                    dolore magna aliqua dui.
+                                                    Marketplace for users to sell their products
                                                 </p>
                                             </div>
                                         </div>
@@ -318,7 +311,7 @@ const Home = () => {
                             </div>
                         </div>
                     </section>
-                    <section className="cta section">
+                    {/* <section className="cta section">
                         <div className="container-sm">
                             <div className="cta-inner section-inner">
                                 <div className="cta-header text-center">
@@ -341,7 +334,7 @@ const Home = () => {
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </section> */}
                 </main>
                 <footer className="site-footer has-top-divider">
                     <div className="container">

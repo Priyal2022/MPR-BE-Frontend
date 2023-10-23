@@ -79,19 +79,15 @@ function Login2() {
                     className="text-center text-md-start d-flex flex-column justify-content-center"
                 >
                     <h1 className="my-5 display-3 fw-bold ls-tight px-3">
-                        The best offer <br />
-                        <span className="text-primary">for your business</span>
+                        ENVISION <br />
+                        <span className="text-primary">Ability in Disability</span>
                     </h1>
 
                     <p
                         className="px-3"
                         style={{ color: "hsl(217, 10%, 50.8%)" }}
                     >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Eveniet, itaque accusantium odio, soluta, corrupti
-                        aliquam quibusdam tempora at cupiditate quis eum maiores
-                        libero veritatis? Dicta facilis sint aliquid ipsum
-                        atque?
+                       
                     </p>
                 </MDBCol>
 
@@ -138,17 +134,6 @@ function Login2() {
                                             onChange={(e) =>
                                                 setPassword(e.target.value)
                                             }
-                                        />
-                                        <MDBIcon
-                                            icon="microphone"
-                                            className="position-absolute top-50 end-0 translate-middle-y"
-                                            onClick={handlePasswordSpeechToText}
-                                            style={{
-                                                cursor: "pointer",
-                                                color: isRecording
-                                                    ? "red"
-                                                    : "#007bff",
-                                            }}
                                         />
                                     </div>
                                 </MDBCol>

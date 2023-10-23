@@ -15,16 +15,20 @@ export default function App() {
       <MDBCol sm='6'>
         <MDBCard>
           <MDBCardBody>
-            <MDBCardTitle>Job title</MDBCardTitle>
+          <MDBCardTitle>results.map{(result, id) =>{
+              return <div key={id}> Job Title {result.jobTitle}</div>
+            }}</MDBCardTitle>
             <MDBCardText>
-             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis, error. Rem, provident enim! Atque temporibus consequuntur deleniti repudiandae laudantium, dignissimos repellat dolor sed recusandae in totam. Facilis doloribus et aut eos suscipit dolores amet laborum nisi officia soluta in quibusdam nam veritatis exercitationem repellat eveniet tenetur maxime, nulla voluptate! Vel placeat, pariatur cupiditate modi optio dolorem, fuga praesentium itaque fugiat maxime alias quia aliquam porro!
+            results.map{(result, id) =>{
+              return <div key={id}> Job Description {result.jobDescription}</div> }}
             </MDBCardText>
-            <MDBBtn href='#'>Apply</MDBBtn>
+            results.map{(result, id) =>{
+              return <div key={id}> Click to apply {result.url}</div> }}
           </MDBCardBody>
         </MDBCard>
       </MDBCol>
 
-      <MDBCol sm='6'>
+      {/* <MDBCol sm='6'>
         <MDBCard>
           <MDBCardBody>
             <MDBCardTitle>Job title </MDBCardTitle>
@@ -35,7 +39,7 @@ export default function App() {
           </MDBCardBody>
         </MDBCard>
       </MDBCol>
-      
+       */}
     </MDBRow>
     
   );

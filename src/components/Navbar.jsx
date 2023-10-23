@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "../envision.png";
 import {
     MDBContainer,
     MDBNavbar,
@@ -22,7 +23,16 @@ export default function Navbar() {
     return (
         <MDBNavbar expand='lg' light bgColor='light'>
             <MDBContainer fluid>
-                <MDBNavbarBrand href='#'>ENVISION</MDBNavbarBrand>
+            {/* <MDBNavbarBrand href='#'>
+            <img
+              src={require('../envision.png')}
+              className='img' 
+            />
+            
+          </MDBNavbarBrand> */}
+                {/* <img src={require('../envision.png')} height='3'
+                    alt=''
+                    loading='lazy'></img> */}
 
                 <MDBNavbarToggler
                     aria-controls='navbarSupportedContent'

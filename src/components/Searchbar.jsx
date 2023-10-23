@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Cards from './Cards'
 import {
   MDBContainer,
   MDBNavbar,
@@ -16,10 +17,31 @@ import {
   MDBCollapse,
 } from 'mdb-react-ui-kit';
 
-export default function App() {
+export default  function App({ setResults }) {
   const [showBasic, setShowBasic] = useState(false);
+  // const [showBasic, setShowBasic] = useState(false);
+  const [input, setInput] = useState("");
+  const fetchData = (value) => {
+    fetch("https://4b35-103-207-59-68.ngrok-free.app/user/jobs")
+      .then((response) => response.json())
+      .then((json) => {
+        const results = json.filter((keyword) => {
+          return (
+            value &&
+            keyword &&
+            keyword.toLowerCase().includes(value)
+          );
+        });
+        setResults(results);
+      });
+  };
 
+  const handleChange = (value) => {
+    setInput(value);
+    fetchData(value);
+  }
   return (
+    
     <MDBNavbar expand='lg' light bgColor='light'>
       <MDBContainer fluid>
         <MDBNavbarBrand href='#'>ENVISION</MDBNavbarBrand>
@@ -51,10 +73,10 @@ export default function App() {
               </MDBNavbarLink>
             </MDBNavbarItem>
           </MDBNavbarNav>
-
           <form className='d-flex input-group w-auto'>
-            <input type='search' className='form-control' placeholder='Type query' aria-label='Search' />
+            <input type='search' className='form-control' placeholder='Type query' value={input} onChange={(e) => handleChange(e.target.value)} aria-label='Search' />
             <MDBBtn color='primary'>Search</MDBBtn>
+            
           </form>
         </MDBCollapse>
       </MDBContainer>

@@ -1,11 +1,38 @@
 .App {
   text-align: center;
 }
-
+.img {
+  height: 150px;
+  width: 150x;
+  float: right;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+#transcript{
+  margin-top: -110px;
+}
+
+.button1{
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  margin: 5px;
+  font-size:15px;
+  background-color:#535FD7;
+  border-color:#535FD7;
+  color: white;
+  
+
+}
+
+.button1:hover{
+  transition: all 0.5s ease;
+  color:#535FD7;
+  background-color: white;
+  border-color:#535FD7;
+} 
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

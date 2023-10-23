@@ -111,7 +111,7 @@ function Signup2() {
             };
 
             fetch(
-                "https://6c76-103-207-59-68.ngrok-free.app/verify",
+                "https://394c-103-207-59-68.ngrok-free.app/verify",
                 requestOptions
             )
                 .then((response) => {
@@ -149,19 +149,15 @@ function Signup2() {
                     className="text-center text-md-start d-flex flex-column justify-content-center"
                 >
                     <h1 className="my-5 display-3 fw-bold ls-tight px-3">
-                        The best offer <br />
-                        <span className="text-primary">for your business</span>
+                        ENVISION <br />
+                        <span className="text-primary">Ability in Disability</span>
                     </h1>
 
                     <p
                         className="px-3"
                         style={{ color: "hsl(217, 10%, 50.8%)" }}
                     >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Eveniet, itaque accusantium odio, soluta, corrupti
-                        aliquam quibusdam tempora at cupiditate quis eum maiores
-                        libero veritatis? Dicta facilis sint aliquid ipsum
-                        atque?
+                        
                     </p>
                 </MDBCol>
 
@@ -268,7 +264,7 @@ function Signup2() {
                                             wrapperClass="mb-4"
                                             label="Password"
                                             id="password"
-                                            type="password"
+                                            type="text"
                                             value={formData.password}
                                             onChange={(e) =>
                                                 setFormData({
@@ -276,15 +272,6 @@ function Signup2() {
                                                     password: e.target.value,
                                                 })
                                             }
-                                        />
-                                        <MDBIcon
-                                            icon="microphone"
-                                            className="position-absolute top-50 end-0 translate-middle-y"
-                                            onClick={handlePasswordSpeechToText}
-                                            style={{
-                                                cursor: "pointer",
-                                                color: "#007bff",
-                                            }}
                                         />
                                     </div>
                                 </MDBCol>
@@ -294,7 +281,7 @@ function Signup2() {
                                             wrapperClass="mb-4"
                                             label="Confirm Password"
                                             id="confirmPassword"
-                                            type="password"
+                                            type="text"
                                             value={formData.confirmPassword}
                                             onChange={(e) =>
                                                 setFormData({
