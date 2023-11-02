@@ -11,7 +11,8 @@
   pointer-events: none;
 }
 #transcript{
-  margin-top: -110px;
+  /* keeps click me button aligned in navbar */
+  margin-top: -1px;  
 }
 
 .button1{

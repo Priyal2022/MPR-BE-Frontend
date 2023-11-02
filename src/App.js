@@ -52,19 +52,16 @@ function App() {
     }
     
   return (
-      
-
       <div className="App">
-        <MDBNavbarBrand href='#'>
+        {/* <MDBNavbarBrand href='#'>
             <img
               src={require('./envision.png')}
               className='img' 
             />
+             <p id="transcript"> 
+            <button class="button1" onClick={SpeechRecognition.startListening}>Click me</button> </p>
+          </MDBNavbarBrand> */}
             
-          </MDBNavbarBrand>
-             <p id="transcript"> Transcript: {transcript}</p>
-
-            <button class="button1" onClick={SpeechRecognition.startListening}>Click me</button> 
       <BrowserRouter>
       <Routes>
           <Route path="/" element={<Home />} />

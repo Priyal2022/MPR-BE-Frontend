@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import ScrollReveal from "scrollreveal";
 import Navbar from "./Navbar";
 import "../envision.png";
+import "../disability.png"
 
 const Home = () => {
     useEffect(() => {
@@ -75,28 +76,14 @@ const Home = () => {
             />
             <script src="/dist/js/main.min.js"></script>
             <link rel="stylesheet" href="/dist/css/style.css" />
-            <div className="body-wrap boxed-container">
-                <header className="site-header">
-                    {/* <div className="container"> */}
-                    {/* <div className="site-header-inner">
-                            <div className="brand header-brand">
-                                <h1 className="m-0">
-                                    <a href="#">
-                                        <img
-                                            className="header-logo-image asset-light"
-                                            src="/dist/images/logo-light.svg"
-                                            alt="Logo"
-                                        />
-                                        <img
-                                            className="header-logo-image asset-dark"
-                                            src="/dist/images/logo-dark.svg"
-                                            alt="Logo"
-                                        />
-                                    </a>
-                                </h1>
+            <div className="body-wrap boxed-container" >
+                <header className="site-header"  >
+                    <div className="container" > 
+                     <div className="site-header-inner">
+                            <div className="brand header-brand" >
                             </div>
-                        </div> */}
-                    {/* </div> */}
+                        </div> 
+                    </div> 
                     <Navbar />
                 </header>
                 <main>
@@ -201,7 +188,7 @@ const Home = () => {
                                             />
                                             <img
                                                 className="features-box asset-dark"
-                                                src="/dist/images/features-box-dark.svg"
+                                                src={require('../disability.png')}
                                                 alt="Feature box"
                                             />
                                             <img
@@ -216,7 +203,7 @@ const Home = () => {
                                             />
                                             <img
                                                 className="features-box asset-light"
-                                                src="/dist/images/features-box-light.svg"
+                                                src={require('../disability.png')}
                                                 alt="Feature box"
                                             />
                                             <img

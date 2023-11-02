@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import "../envision.png";
 import {
     MDBContainer,
@@ -19,21 +20,17 @@ import {
 
 export default function Navbar() {
     const [showBasic, setShowBasic] = useState(false);
-
     return (
-        <MDBNavbar expand='lg' light bgColor='light'>
-            <MDBContainer fluid>
-            {/* <MDBNavbarBrand href='#'>
-            <img
-              src={require('../envision.png')}
-              className='img' 
-            />
-            
-          </MDBNavbarBrand> */}
-                {/* <img src={require('../envision.png')} height='3'
-                    alt=''
-                    loading='lazy'></img> */}
-
+        <MDBNavbar expand='lg' light bgColor='light' >
+            <MDBContainer fluid >
+                <MDBNavbarBrand href='#'>
+                            <img
+                                src={require('../envision.png')}
+                                className='img'
+                            />
+                            <p id="transcript">
+                                <button class="button1" onClick={SpeechRecognition.startListening}>Click me</button> </p>
+                        </MDBNavbarBrand>
                 <MDBNavbarToggler
                     aria-controls='navbarSupportedContent'
                     aria-expanded='false'

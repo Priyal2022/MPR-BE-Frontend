@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import '../envision.png'
 import Cards from './Cards'
 import {
   MDBContainer,
@@ -44,8 +46,14 @@ export default  function App({ setResults }) {
     
     <MDBNavbar expand='lg' light bgColor='light'>
       <MDBContainer fluid>
-        <MDBNavbarBrand href='#'>ENVISION</MDBNavbarBrand>
-
+      <MDBNavbarBrand href='#'>
+                            <img
+                                src={require('../envision.png')}
+                                className='img'
+                            />
+                            <p id="transcript">
+                                <button class="button1" onClick={SpeechRecognition.startListening}>Click me</button> </p>
+                        </MDBNavbarBrand>
         <MDBNavbarToggler
           aria-controls='navbarSupportedContent'
           aria-expanded='false'

@@ -1123,7 +1123,7 @@ label {
 }
 .site-header {
     position: relative;
-    padding: 24px 0;
+    /* padding: 24px 0; */
     z-index: 2;
 }
 .site-header::before {
