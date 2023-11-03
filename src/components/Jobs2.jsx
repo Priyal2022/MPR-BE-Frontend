@@ -26,24 +26,26 @@ const Home = () => {
                     <Searchbar setResults={setResults} />
                 </header>
                 <main>
-                    <MDBRow className='mb-3'>
-                        <MDBCol size='6' lg='8'>
-                        <div className='d-flex input-group w-auto px-4 '>
-                                <input type='search' className='' placeholder='Type query' value={input} onChange={(e) => handleChange(e.target.value)} aria-label='Search' />
-                                <div className='d-grid '><MDBBtn color='primary'>Search</MDBBtn></div>
-                            </div>
-                        </MDBCol>{' '}
-                    </MDBRow>
                     <MDBRow>
-                        <MDBCol size='6' md='4'>
-                            <Cards />
-                        </MDBCol>
-                        <MDBCol size='6' md='4'>
-                        <Cards />
-                        </MDBCol>
-                        <MDBCol size='6' md='4'>
-                        <Cards />
-                        </MDBCol>
+                        <MDBRow className='mb-3'>
+                            <MDBCol size='6' lg='8'>
+                                <div className='d-flex input-group w-auto px-4 '>
+                                    <input type='search' className='' placeholder='Type query' value={input} onChange={(e) => handleChange(e.target.value)} aria-label='Search' />
+                                    <div className='d-grid '><MDBBtn color='primary'>Search</MDBBtn></div>
+                                </div>
+                            </MDBCol>{' '}
+                        </MDBRow>
+                        <MDBRow>
+                            <MDBCol size='6' md='4'>
+                                <Cards />
+                            </MDBCol>
+                            <MDBCol size='6' md='4'>
+                                <Cards />
+                            </MDBCol>
+                            <MDBCol size='6' md='4'>
+                                <Cards />
+                            </MDBCol>
+                        </MDBRow>
                     </MDBRow>
                     {/* <section>
                     <MDBRow>

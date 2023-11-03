@@ -2,7 +2,7 @@
   text-align: center;
 }
 .img {
-  height: 150px;
+  height: 90px;
   width: 150x;
   float: right;
 }
@@ -16,16 +16,14 @@
 }
 
 .button1{
-  width: 100px;
+  width: 80px;
   height: 40px;
   border-radius: 5px;
-  margin: 5px;
+  margin-top: 18px;
   font-size:15px;
   background-color:#535FD7;
   border-color:#535FD7;
   color: white;
-  
-
 }
 
 .button1:hover{
