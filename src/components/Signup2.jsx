@@ -1,4 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useNavigate} from 'react-router-dom';
+import '../App';
+
 import {
     MDBBtn,
     MDBContainer,
@@ -12,6 +15,13 @@ import {
 import useSpeechToText from "react-hook-speech-to-text";
 
 function Signup2() {
+    const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    // Replace '/target-route' with the desired route path
+    navigate('/jobs2');
+  };
+
     const {
         error,
         interimResult,
@@ -297,8 +307,10 @@ function Signup2() {
                                 className="w-100 mb-4"
                                 size="md"
                                 data-bs-dismiss="toast"
+                                onClick={handleButtonClick}
                             >
-                                Sign Up
+                                 Sign Up
+                                
                             </MDBBtn>
 
                             <div className="text-center">

@@ -9,9 +9,10 @@ import {
     MDBInput,
     MDBIcon,
 } from "mdb-react-ui-kit";
-
 function Login() {
     return (
+<>
+        
         <MDBContainer fluid className="p-4">
             <MDBRow>
                 <MDBCol
@@ -61,9 +62,11 @@ function Login() {
                                 type="password"
                             />
 
-                            <MDBBtn className="w-100 mb-4" size="md">
-                                Login
-                            </MDBBtn>
+                            {/* <MDBBtn className="w-100 mb-4" size="md">
+                                <a>Login</a>
+                            </MDBBtn> */}
+                            
+                            
 
                             <div className="text-center">
                                 <p>or sign up with:</p>
@@ -109,6 +112,7 @@ function Login() {
                 </MDBCol>
             </MDBRow>
         </MDBContainer>
+        </>
     );
 }
 

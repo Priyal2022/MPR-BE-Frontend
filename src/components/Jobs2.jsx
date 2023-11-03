@@ -1,41 +1,95 @@
 import React, { useState } from 'react'
 import Searchbar from "./Searchbar"
 import Cards from "./Cards"
-import { MDBBtn, MDBCol, MDBContainer, MDBRow } from 'mdb-react-ui-kit';
+import { MDBBtn, MDBCol, MDBContainer, MDBRow, MDBCardText, MDBCardTitle, MDBCard,MDBCardBody } from 'mdb-react-ui-kit';
 import ScrollReveal from "scrollreveal";
 import Navbar from "./Navbar";
 import "../envision.png";
 import "../disability.png"
 
-const Home = () => {
-    const [results, setResults] = useState([]);
-    const [input, setInput] = useState("");
-    const handleChange = (value) => {
-        setInput(value);
 
+const Home = () => {
+    const [keyword, setKeyword] = useState('');
+  const [jobsInfo, setJobsInfo] = useState([]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          keyword: keyword
+        }),
+      });
+      const data = await response.json();
+      setJobsInfo(data.jobsInfo);
+    } catch (error) {
+      console.error('Error fetching data:', error);
     }
-    //     useEffect(() => {
-    //         // Place your JavaScript code here
-    //         (function () {
-    //                 } else {
+  };
     return (
         <>
+        {/* <Navbar /> */}
+        <Searchbar />
             <link rel="stylesheet" href="/dist/css/style.css" />
-            <div className="body-wrap boxed-container" >
-                <header className="mb-3" >
-                    <Searchbar setResults={setResults} />
-                </header>
+            <div className="body-wrap boxed-container margin" >
+                <form onSubmit={handleSubmit}>
+                    <label>
+                    Enter your field of interest:
+                    <input
+                        type="text"
+                        value={keyword}
+                        onChange={(e) => setKeyword(e.target.value)}
+
+                    />
+                    <button  type='submit'>Search</button>
+                    </label>
+                    
+
+                </form>
                 <main>
-                    <MDBRow>
+                    {/* <MDBRow>
                         <MDBRow className='mb-3'>
                             <MDBCol size='6' lg='8'>
                                 <div className='d-flex input-group w-auto px-4 '>
-                                    <input type='search' className='' placeholder='Type query' value={input} onChange={(e) => handleChange(e.target.value)} aria-label='Search' />
-                                    <div className='d-grid '><MDBBtn color='primary'>Search</MDBBtn></div>
+                                {jobsInfo && jobsInfo.map((job, index) => (
+                                <div key={index}>
+                                            <MDBCardTitle>
+                                            <a href={job.url}>{job.jobTitle}</a>
+                                            </MDBCardTitle>
+                                            <MDBCardText>
+                                            <p>{job.jobDescription}</p>
+                                            </MDBCardText>
+                                            </div>
+                                ))}
                                 </div>
                             </MDBCol>{' '}
-                        </MDBRow>
-                        <MDBRow>
+                        </MDBRow> */}
+                   
+                            <MDBCol ></MDBCol>
+                            <MDBCard>
+                                <MDBCardBody>
+                                {jobsInfo && jobsInfo.map((job, index) => (
+                                <div key={index}>
+                                    <MDBCardTitle>
+                                       
+                                     <a href={job.url}> {job.jobTitle}</a>
+                                    </MDBCardTitle>
+                                    <MDBCardText>
+                                    <p>{job.jobDescription}</p>
+                                    </MDBCardText>
+                                    </div>
+                                     ))}
+                                </MDBCardBody>
+                            </MDBCard>
+                           
+                        
+
+                        
+                        {/* <MDBRow>
                             <MDBCol size='6' md='4'>
                                 <Cards />
                             </MDBCol>
@@ -46,7 +100,7 @@ const Home = () => {
                                 <Cards />
                             </MDBCol>
                         </MDBRow>
-                    </MDBRow>
+                    </MDBRow> */}
                     {/* <section>
                     <MDBRow>
                         <MDBCol md='8'>

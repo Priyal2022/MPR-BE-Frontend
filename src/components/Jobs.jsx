@@ -48,6 +48,7 @@ import {
   MDBBtn
 } from 'mdb-react-ui-kit';
 import Navbar from './Navbar';
+import SearchBar from './Searchbar'
 const Jobs = () => {
   const [keyword, setKeyword] = useState('');
   const [jobsInfo, setJobsInfo] = useState([]);
@@ -55,7 +56,7 @@ const Jobs = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/user/jobs', {
+      const response = await fetch('', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -73,7 +74,7 @@ const Jobs = () => {
 
   return (
     <div>
-      <Navbar />
+      <SearchBar />
       <form onSubmit={handleSubmit}>
         <label>
           Enter your field of interest:

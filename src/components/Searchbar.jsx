@@ -70,7 +70,7 @@ export default  function App({ setResults }) {
               </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBNavbarLink active aria-current='page' href='#'>
+              <MDBNavbarLink active aria-current='page' href='marketplacelink'>
                 Market Place
               </MDBNavbarLink>
             </MDBNavbarItem>

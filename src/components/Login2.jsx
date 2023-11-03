@@ -1,4 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
+import { Link, Router, Route, Routes } from 'react-router-dom';
+import Jobs2 from './Jobs2'
+
 import {
     MDBBtn,
     MDBContainer,
@@ -71,6 +74,8 @@ function Login2() {
     }, [results]);
 
     return (
+        <>
+        
         <MDBContainer fluid className="p-4">
             <MDBRow>
                 <MDBCol
@@ -137,9 +142,12 @@ function Login2() {
                                     </div>
                                 </MDBCol>
                             </MDBRow>
-                            <MDBBtn className="w-100 mb-4" size="md">
+                            <MDBBtn className="w-100 mb-4" size="md" >
                                 Login
                             </MDBBtn>
+                            {/* <Link to="/jobs2">
+                                <a>Login</a>
+                            </Link> */}
 
                             <div className="text-center">
                                 <p>or sign up with:</p>
@@ -185,6 +193,7 @@ function Login2() {
                 </MDBCol>
             </MDBRow>
         </MDBContainer>
+        </>
     );
 }
 
