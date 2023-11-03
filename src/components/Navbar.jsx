@@ -41,7 +41,7 @@ export default function Navbar() {
                 </MDBNavbarToggler>
                 <MDBCollapse navbar show={showBasic}>
                     <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
-                        <MDBNavbarItem>
+                        {/* <MDBNavbarItem>
                             <MDBNavbarLink active aria-current='page' href='/Home'>
                                 Home
                             </MDBNavbarLink>
@@ -55,7 +55,7 @@ export default function Navbar() {
                             <MDBNavbarLink active aria-current='page' href='/Jobs'>
                                 Jobs
                             </MDBNavbarLink>
-                        </MDBNavbarItem>
+                        </MDBNavbarItem> */}
                     </MDBNavbarNav>
                 </MDBCollapse>
             </MDBContainer>

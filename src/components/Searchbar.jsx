@@ -62,12 +62,11 @@ export default  function App({ setResults }) {
         >
           <MDBIcon icon='bars' fas />
         </MDBNavbarToggler>
-
         <MDBCollapse navbar show={showBasic}>
           <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
             <MDBNavbarItem>
               <MDBNavbarLink active aria-current='page' href='#'>
-                Home
+                Jobs
               </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
@@ -75,17 +74,7 @@ export default  function App({ setResults }) {
                 Market Place
               </MDBNavbarLink>
             </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBNavbarLink active aria-current='page' href='#'>
-                Jobs
-              </MDBNavbarLink>
-            </MDBNavbarItem>
           </MDBNavbarNav>
-          <form className='d-flex input-group w-auto'>
-            <input type='search' className='form-control' placeholder='Type query' value={input} onChange={(e) => handleChange(e.target.value)} aria-label='Search' />
-            <MDBBtn color='primary'>Search</MDBBtn>
-            
-          </form>
         </MDBCollapse>
       </MDBContainer>
     </MDBNavbar>

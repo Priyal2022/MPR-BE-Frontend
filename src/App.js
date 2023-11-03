@@ -6,12 +6,14 @@ import Signup from './components/Signup';
 import Signup2 from './components/Signup2';
 import Home from './components/Home';
 import Login2 from './components/Login2';
+import Jobs from './components/Jobs';
+import Home2 from "./components/Jobs2"
 import SpeechRecognition, {useSpeechRecognition} from 'react-speech-recognition';
 import Navbar from './components/Navbar';
 import { useState } from 'react';
 import './App.css';
 import Searchbar from './components/Searchbar'
-import Jobs from './components/Jobs';
+import Jobs2 from './components/Jobs2';
 import Cards from './components/Cards'
 import {
   MDBNavbarBrand,
@@ -70,6 +72,8 @@ function App() {
           {/* <Route path="/signup" element={<Signup />} /> */}
           <Route path="/signup2" element={<Signup2 />} />
           <Route path="/jobs" element={<Jobs />} />
+          <Route path="/jobs2" element={<Jobs2 />} />
+
         </Routes>
 
         {redirect}
